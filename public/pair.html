@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nyahure.Ke Pair</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { 
+      font-family: Arial; 
+      text-align: center; 
+      padding: 50px; 
+      background: #111; 
+      color: white; 
+    }
+    #qr { margin: 20px auto; }
+    #status { font-size: 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Nyahure.Ke Bot</h2>
+  <div id="qr">Waiting for QR...</div>
+  <div id="status">Connecting...</div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on('qr', qr => {
+      document.getElementById('qr').innerHTML = 
+        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qr}">`;
+    });
+    socket.on('connected', () => {
+      document.getElementById('status').innerText = '✅ Connected!';
+      document.getElementById('qr').innerText = '';
+    });
+  </script>
+</body>
+</html>
