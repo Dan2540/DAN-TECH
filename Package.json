@@ -1,0 +1,20 @@
+{
+  "name": "dan-tech-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp bot built with Baileys",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "20.11.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "6.7.18",
+    "adm-zip": "^0.5.14",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "supabase": "^2.45.0"
+  }
+}
